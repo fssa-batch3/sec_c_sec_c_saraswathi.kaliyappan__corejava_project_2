@@ -14,6 +14,6 @@ public interface productValidatorErros {
 	String PRODUCT_PRICE_FAIL_MSG = "Invalid productprice fail message";
 	String PRODUCT_IMAGE_URL_FAIL_MSG = "Invalid product image url fail message";
 	Object INVALID_PRODUCT_NAME = "Invalid product name";
-	String INVALID_PRODUCT_CAPACITY = "valid product capacity";
+	String INVALID_PRODUCT_CAPACITY = "invalid product capacity";
 }
 

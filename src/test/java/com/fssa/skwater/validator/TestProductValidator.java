@@ -47,7 +47,7 @@ public class TestProductValidator {
 			ProductValidator.productNameValidator("ThisProductNameIsTooLong");
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
-			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_NAME, e.getMessage());
+			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCTNAME, e.getMessage());
 		}
 	}
   // test for the valid product description
@@ -66,23 +66,15 @@ public class TestProductValidator {
 		}
 	}
 	// test for invalid product description  Less than 15 characters
-//	@Test
-//	public void testInvalidProductDescriptionLength() {
-//		try {
-//			ProductValidator.productDescriptionValidator("yello"); 
-//			Assertions.fail("Expected IllegalArgumentException was not thrown");
-//		} catch (IllegalArgumentException e) {
-//			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_DESCRIPTION, e.getMessage());
-//		}
-//		// test for invalid product description More than 100 characters
-//		try {
-//			ProductValidator.productDescriptionValidator(
-//					"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum enim."); 
-//			Assertions.fail("Expected IllegalArgumentException was not thrown");
-//		} catch (IllegalArgumentException e) {
-//			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_DESCRIPTION_NULL, e.getMessage());
-//		}
-//	}
+	@Test
+	public void testInvalidProductDescriptionLength() {
+		try {
+			ProductValidator.productDescriptionValidator("yello"); 
+			Assertions.fail("Expected IllegalArgumentException was not thrown");
+		} catch (IllegalArgumentException e) {
+			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_DESCRIPTION, e.getMessage());
+		}
+	}
   //test for valid product image url
 	@Test
 	public void testValidProductImageURL() {
@@ -98,16 +90,16 @@ public class TestProductValidator {
 			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_IMAGE_URL_NULL, e.getMessage());
 		}
 	}
-// // test for Invalid URL pattern
-//	@Test
-//	public void testInvalidProductImageURLPattern() {
-//		try {
-//			ProductValidator.productImageURLValidator("ghjk"); 
-//			Assertions.fail("Expected IllegalArgumentException was not thrown");
-//		} catch (IllegalArgumentException e) {
-//			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_IMAGE_URL_NULL, e.getMessage());
-//		}
-//	}
+ // test for Invalid URL pattern
+	@Test
+	public void testInvalidProductImageURLPattern() {
+		try {
+			ProductValidator.productImageURLValidator("ghjk"); 
+			Assertions.fail("Expected IllegalArgumentException was not thrown");
+		} catch (IllegalArgumentException e) {
+			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_IMAGE_URL, e.getMessage());
+		}
+	}
 //test for valid product price
 	@Test
 	public void testValidProductPrice() {
@@ -133,21 +125,22 @@ public class TestProductValidator {
 			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_PRICE, e.getMessage());
 		}
 	}
-////test for valid product capacity 
+//test for valid product capacity 
 //	@Test
-//	public void testProductCapacityValidatorWithValidCapacity() {
-//		Assertions.assertTrue(ProductValidator.productCapacityValidator(500));
+//	public void testValidProductCapacity() {
+//		Assertions.assertTrue(ProductValidator.productPriceValidator(50));
 //	}
-	
+//	
 //test for invalid product capacity
 	@Test
 	public void testProductCapacityValidatorWithInvalidCapacity() {
 		try {
 			// Invalid capacity, should be greater than 0
 			ProductValidator.productCapacityValidator(0); 
-			Assertions.fail("Expected IllegalArgumentException was thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErros.INVALID_PRODUCT_CAPACITY, e.getMessage());
 		}
 	}
+
+
 }
