@@ -1,4 +1,17 @@
-Database Desing - SK_Water
+MILESTONE 1
+
+** PRODUCT MODULE**
+ 
+Product Model
+Product Validator
+Product DAO
+Product serviceLayer
+Product  TestCases
+
+
+
+
+Database Design - SK_Water
 
 Table: Product
 
