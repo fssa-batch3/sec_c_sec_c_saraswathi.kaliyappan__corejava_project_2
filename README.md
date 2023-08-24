@@ -2,11 +2,11 @@ MILESTONE 1
 
 ** PRODUCT MODULE**
  
-Product Model,
-Product Validator,
-Product DAO,
-Product serviceLayer,
-Product  TestCases
+* Product Model,
+* Product Validator,
+* Product DAO,
+* Product serviceLayer,
+* Product  TestCases
 
 
 
