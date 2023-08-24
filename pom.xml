@@ -21,11 +21,6 @@
 	
 	<dependencies>
             <!-- Example dependency declaration -->
-        <dependency>
-            <groupId>com.fssa.sk</groupId>
-            <artifactId>first-mvn-proj-sk</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
