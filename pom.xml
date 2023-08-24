@@ -20,7 +20,6 @@
 	     </properties>
 	
 	<dependencies>
-            <!-- Example dependency declaration -->
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
