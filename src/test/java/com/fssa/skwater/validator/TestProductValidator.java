@@ -14,7 +14,7 @@ public class TestProductValidator {
 	@Test
 	public void testProductValidator() {
 		try {
-			boolean validate = productValidator.validate(null);
+			boolean validate = ProductValidator.validate(null);
 			Assertions.fail(productValidatorErrors.INVALID_PRODUCT_NULL);
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_NULL, e.getMessage());
@@ -27,7 +27,7 @@ public class TestProductValidator {
 
 	void testValidProductId() {
 		int productId = 55; // valid product id
-		Assertions.assertTrue(productValidator.validateProductId(productId));
+		Assertions.assertTrue(ProductValidator.validateProductId(productId));
 	}
 
 	
@@ -37,7 +37,7 @@ public class TestProductValidator {
 	void testInValidProductId() {
 		try {
 			int productId = -5; // Invalid product id
-			productValidator.validateProductId(productId);
+			ProductValidator.validateProductId(productId);
 		} catch (IllegalArgumentException ex) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUT_ID, ex.getMessage());
 		}
@@ -47,14 +47,14 @@ public class TestProductValidator {
     // Test valid product name
 	@Test
 	public void testProductName() {
-		Assertions.assertTrue(productValidator.productNameValidator("Bisleri"));
+		Assertions.assertTrue(ProductValidator.productNameValidator("Bisleri"));
 	}
 
     // Test invalid product name (null)
 	@Test
 	public void testInvalidProductNameNull() {
 		try {
-			productValidator.productNameValidator(null);
+			ProductValidator.productNameValidator(null);
 			Assertions.fail(productValidatorErrors.INVALID_PRODUCTNAME_NULL);
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCTNAME_NULL, e.getMessage());
@@ -66,7 +66,7 @@ public class TestProductValidator {
 	@Test
 	public void testInvalidProductNameLength() {
 		try {
-			productValidator.productNameValidator("b");  
+			ProductValidator.productNameValidator("b");  
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCTNAME, e.getMessage());
@@ -74,7 +74,7 @@ public class TestProductValidator {
 		
 		
 		try {
-			productValidator.productNameValidator("ThisProductNameIsTooLong");
+			ProductValidator.productNameValidator("ThisProductNameIsTooLong");
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCTNAME, e.getMessage());
@@ -85,7 +85,7 @@ public class TestProductValidator {
     // Test valid product description
 	@Test
 	public void testValidProductDescription() {
-		Assertions.assertTrue(productValidator.productDescriptionValidator("The product is very good product"));
+		Assertions.assertTrue(ProductValidator.productDescriptionValidator("The product is very good product"));
 	}
 	
 	
@@ -93,7 +93,7 @@ public class TestProductValidator {
 	@Test
 	public void testInvalidProductDescriptionNull() {
 		try {
-			productValidator.productDescriptionValidator(null);
+			ProductValidator.productDescriptionValidator(null);
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_DESCRIPTION_NULL, e.getMessage());
@@ -104,7 +104,7 @@ public class TestProductValidator {
 	@Test
 	public void testInvalidProductDescriptionLength() {
 		try {
-			productValidator.productDescriptionValidator("yello"); 
+			ProductValidator.productDescriptionValidator("yello"); 
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_DESCRIPTION, e.getMessage());
@@ -114,7 +114,7 @@ public class TestProductValidator {
     // Test valid product image URL
 		@Test
 		void testValidIamge() {
-			Assertions.assertTrue(productValidator.productImageValidator("https://iili.io/HhR0ku9.jpg"));
+			Assertions.assertTrue(ProductValidator.productImageValidator("https://iili.io/HhR0ku9.jpg"));
 		}
 
 		
@@ -122,7 +122,7 @@ public class TestProductValidator {
 		@Test
 		void testInvalidIamge() {
 			try {
-				productValidator.productImageValidator("https://iili.io/HZHkOzl.https");
+				ProductValidator.productImageValidator("https://iili.io/HZHkOzl.https");
 				Assertions.fail("Validate image failed");
 			} catch (IllegalArgumentException ex) {
 				Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCTIMAGE, ex.getMessage());
@@ -134,7 +134,7 @@ public class TestProductValidator {
 		@Test
 		void testInvalidNullProductImage() {
 			try {
-				productValidator.productImageValidator(null);
+				ProductValidator.productImageValidator(null);
 			} catch (IllegalArgumentException ex) {
 				Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCTIMAGE_NULL, ex.getMessage());
 			}
@@ -143,7 +143,7 @@ public class TestProductValidator {
 	    // Test valid product price
 	    @Test
 	    public void testValidProductPrice() {
-		         Assertions.assertTrue(productValidator.productPriceValidator(1000));
+		         Assertions.assertTrue(ProductValidator.productPriceValidator(1000));
 	     }
 	    
 	    
@@ -151,7 +151,7 @@ public class TestProductValidator {
 	@Test
 	public void testInvalidProductPriceZero() {
 		try {
-			productValidator.productPriceValidator(0);
+			ProductValidator.productPriceValidator(0);
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_PRICE, e.getMessage());
@@ -163,7 +163,7 @@ public class TestProductValidator {
 	@Test
 	public void testInvalidProductPriceLessThan500() {
 		try {
-			productValidator.productPriceValidator(100);
+			ProductValidator.productPriceValidator(100);
 			Assertions.fail("Expected IllegalArgumentException was not thrown");
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_PRICE, e.getMessage());
@@ -182,7 +182,7 @@ public class TestProductValidator {
 	public void testProductCapacityValidatorWithInvalidCapacity() {
 		try {
 			// Invalid capacity, should be greater than 0
-			productValidator.validate(0); 
+			ProductValidator.validate(0); 
 		} catch (IllegalArgumentException e) {
 			Assertions.assertEquals(productValidatorErrors.INVALID_PRODUCT_CAPACITY, e.getMessage());
 		}
@@ -192,7 +192,7 @@ public class TestProductValidator {
 	 @Test
 	    void testInvalidManufactureDate() {
 	        try {
-	        	productValidator.validateManufactureDate(null);
+	        	ProductValidator.validateManufactureDate(null);
 	            Assertions.fail("Expected an exception, but none was thrown.");
 	        } catch (Exception e) {
             Assertions.assertEquals(productValidatorErrors.INVALID_MANUFACTUREDATE_PATTERN, e.getMessage());

@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 import com.mysql.cj.xdevapi.Statement;
 
-import io.github.cdimascio.dotenv.Dotenv;
-
 public class connectionUtil {
 	 public static Connection getConnection() {
 	        Connection con = null;
@@ -21,8 +19,7 @@ public class connectionUtil {
 	            passWord = System.getenv("DATABASE_PASSWORD");
 	            
 	            
-	            
-	            
+	           	            
 	        
 	        try {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
