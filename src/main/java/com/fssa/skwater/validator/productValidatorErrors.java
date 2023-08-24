@@ -55,5 +55,9 @@ public class productValidatorErrors {
     public static final Object INVALID_PRODUCT_NAME = "Invalid product name.";
     
     // Fail message for invalid product image URL
-    public static final String INVALID_PRODUCT_IMAGE_URL = "Invalid product image URL."; 
+    public static final String INVALID_PRODUCT_IMAGE_URL = "Invalid product image URL.";
+
+	public static final String CONNOT_ADD_PRODUCT = null;
+
+	public static final String INVALID_PRODUCTID = null; 
 }

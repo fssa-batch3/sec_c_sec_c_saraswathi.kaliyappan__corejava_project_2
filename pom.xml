@@ -4,13 +4,21 @@
   <artifactId>sk-water</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>sk-water</name>
+  
   <description>project for doing water delivery websit</description>
+  
         <properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-	</properties>
+		
+		<sonar.projectKey>fssa-batch3_sec_c_sec_c_saraswathi.kaliyappan__corejava_project_2</sonar.projectKey>
+        <sonar.organization>fssa-batch3</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        
+	     </properties>
 	
 	<dependencies>
+
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -23,12 +31,18 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
     </dependency>
+	    <dependency>
+	    	<groupId>com.fssa.sk</groupId>
+	    	<artifactId>first-mvn-proj-sk</artifactId>
+	    	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
 	</dependencies>
 	
 	<build>
 		<pluginManagement>
 			<!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
 			<plugins>
+								
 				<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -69,6 +83,32 @@
 					<version>3.0.0</version>
 				</plugin>
 				
+				<plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.4</version>
+                    <executions>
+                        <execution>
+                            <id>default-prepare-agent</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>jacoco-report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.9.0.2155</version> <!-- Check for the latest
+					version on the Maven Central repository -->
+                </plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
