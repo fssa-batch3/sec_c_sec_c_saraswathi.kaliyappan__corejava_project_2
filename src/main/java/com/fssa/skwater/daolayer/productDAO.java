@@ -6,11 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import java.sql.*;
 
-import com.fssa.skwater.connection.connectionUtil;
+import com.fssa.skwater.utils.ConnectionUtil;
 import com.fssa.skwater.model.Product;
 import com.fssa.skwater.validator.productValidatorErrors;
+import com.fssa.skwater.utils.*;
 
 public class productDAO {
 	// Create product Query  
@@ -20,7 +21,7 @@ public class productDAO {
 
 			String query = "INSERT INTO product (id, name, url, price, category) VALUES (?, ?, ?, ?, ?)";
 
-			try (Connection con = connectionUtil.getConnection()) {
+			try (Connection con = ConnectionUtil.getConnection()) {
 
 				try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
 
@@ -28,7 +29,7 @@ public class productDAO {
 					preparedStatement.setString(2, product.getProductName());
 					preparedStatement.setString(3,product.getProductDescription());
 					preparedStatement.setDouble(4, (product.getProductPrice()));
-					preparedStatement.setString(5, product.getProductImageUrl());
+					preparedStatement.setString(5, product.getProductImageURL());
 					preparedStatement.setInt(6, product.getProductCapacity());
 					preparedStatement.executeUpdate();
 
@@ -41,7 +42,7 @@ public class productDAO {
 		}
 		
 		// Update product Query
-		public boolean updateProduct(Product product) throws DAOException, SQLException {
+		public boolean updateProduct(Product product) throws DAOException, SQLException, InvalidCapacityException {
 
 			if (product.getProductId() <= 0) {
 				throw new InvalidCapacityException(productValidatorErrors.INVALID_PRODUCTID);
@@ -49,7 +50,7 @@ public class productDAO {
 
 			String query = "UPDATE product SET name = ? , url = ? , price = ? , category = ? WHERE id = ?";
 
-			try (Connection con = connectionUtil.getConnection()) {
+			try (Connection con = ConnectionUtil.getConnection()) {
 
 				try (PreparedStatement pst = con.prepareStatement(query)) {
 
@@ -57,7 +58,7 @@ public class productDAO {
 					pst.setString(2, product.getProductName());
 					pst.setString(3,product.getProductDescription());
 					pst.setDouble(4, (product.getProductPrice()));
-					pst.setString(1, product.getProductImageUrl());
+					pst.setString(1, product.getProductImageURL());
 					pst.setInt(6, product.getProductCapacity());
 					pst.executeUpdate();
 
@@ -70,7 +71,7 @@ public class productDAO {
 		}
 		
 		//Delete product Query	
-		public boolean deleteProduct(int productId) throws DAOException, SQLException {
+		public boolean deleteProduct(int productId) throws DAOException, SQLException, InvalidCapacityException {
 
 			if (productId <= 0) {
 				throw new InvalidCapacityException(productValidatorErrors.INVALID_PRODUCTID);
@@ -78,7 +79,7 @@ public class productDAO {
 
 			String query = "DELETE FROM products WHERE id = ?";
 
-			try (Connection con = connectionUtil.getConnection()) {
+			try (Connection con = ConnectionUtil.getConnection()) {
 
 				try (PreparedStatement pt = con.prepareStatement(query)) {
 
@@ -99,17 +100,18 @@ public class productDAO {
 
 			List<Product> productList = new ArrayList<>();
 
-			try (Connection con = connectionUtil.getConnection()) {
+			try (Connection con = ConnectionUtil.getConnection()) {
 				final String query = "SELECT * FROM product";
 				try (Statement st = con.createStatement()) {
 					try (ResultSet rs = st.executeQuery(query)) {
 						while (rs.next()) {
 							Product product = new Product();
-							product.setProductId(rs.getInt("id"));
-							product.setProductName(rs.getString("name"));
-							product.setProductImageURL(rs.getString("url"));
-							product.setProductPrice(rs.getDouble("price"));
-							product.setProductCatagory(rs.getString("category"));
+							product.setProductId(rs.getInt("productId"));
+							product.setProductName(rs.getString("productName"));
+							product.setProductDescription(rs.getString("productDescription"));
+							product.setProductImageURL(rs.getString("productImage"));
+							product.setProductPrice(rs.getDouble("productPrice"));
+							product.setProductCapacity(rs.getInt("productCapacity"));
 							productList.add(product);
 						}
 
@@ -122,4 +124,5 @@ public class productDAO {
 			return productList;
 		}
 
+	}
 }

@@ -18,7 +18,9 @@ public class Product {
 	    private int productCapacity;                     //The capacity of the product
 	    private LocalDate productManufactureDate;       //The manufacture date for product past date
 	    
-	    
+	    public Product() {
+	    	
+	    }
 	
 	    /**
 	     * Constructor to create a new Product instance.
@@ -42,77 +44,66 @@ public class Product {
 		this.productCapacity = productCapacity;
 		this.productManufactureDate = productManufactureDate;
 	}
+
+		public int getProductId() {
+			return productId;
+		}
+
+		public void setProductId(int productId) {
+			this.productId = productId;
+		}
+
+		public String getProductName() {
+			return productName;
+		}
+
+		public void setProductName(String productName) {
+			this.productName = productName;
+		}
+
+		public String getProductDescription() {
+			return productDescription;
+		}
+
+		public void setProductDescription(String productDescription) {
+			this.productDescription = productDescription;
+		}
+
+		public double getProductPrice() {
+			return productPrice;
+		}
+
+		public void setProductPrice(double productPrice) {
+			this.productPrice = productPrice;
+		}
+
+		public String getProductImageURL() {
+			return productImageURL;
+		}
+
+		public void setProductImageURL(String productImageURL) {
+			this.productImageURL = productImageURL;
+		}
+
+		public int getProductCapacity() {
+			return productCapacity;
+		}
+
+		public void setProductCapacity(int productCapacity) {
+			this.productCapacity = productCapacity;
+		}
+
+		public LocalDate getProductManufactureDate() {
+			return productManufactureDate;
+		}
+
+		public void setProductManufactureDate(LocalDate productManufactureDate) {
+			this.productManufactureDate = productManufactureDate;
+		}
 	
 	//Getter and setter methods for the attributes....
 	//Getter for the product Id
 	   
-	public int getProductId() {
-		return productId;
-	}
 
-	//Setter for the product Id
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
- 
-    // Getter for productName
-	public String getProductName() {
-		return productName;
-	}
-
-    // Setter for productName
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-    // Getter for productDescription
-	public String getProductDescription() {
-		return productDescription;
-	}
-
-    // Setter for productDescription
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
-	}
-
-    // Getter for productPrice
-	public double getProductPrice() {
-		return productPrice;
-	}
-
-    // Setter for productPrice
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
-	}
-
-    // Getter for productImageURL
-	public String getProductImageUrl() {
-		return productImageURL;
-	}
-
-    // Setter for productImageURL
-	public void setProductImage(String productImageURL) {
-		this.productImageURL = productImageURL;
-	}
-
-    // Getter for productCapacity
-	public int getProductCapacity() {
-		return productCapacity;
-	}
-	
-    // Setter for productCapacity
-	public void setProductCapacity(int productCapacity) {
-		this.productCapacity = productCapacity;
-	}
-	
-    // Getter for productManufactureDate
-	public LocalDate getProductManufactureDate() {
-		return productManufactureDate;
-	}
-	
-    // Setter for productManufactureDate
-	public void setproductManufactureDate(LocalDate productManufactureDate) {
-		this.productManufactureDate = productManufactureDate;
-	}
 
 }
