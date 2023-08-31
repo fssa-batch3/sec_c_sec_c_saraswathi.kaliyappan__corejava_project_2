@@ -44,6 +44,9 @@ public class Product {
 		this.productCapacity = productCapacity;
 		this.productManufactureDate = productManufactureDate;
 	}
+	    
+		//Getter and setter methods for the attributes....
+		//Getter for the product Id
 
 		public int getProductId() {
 			return productId;
@@ -101,8 +104,7 @@ public class Product {
 			this.productManufactureDate = productManufactureDate;
 		}
 	
-	//Getter and setter methods for the attributes....
-	//Getter for the product Id
+
 	   
 
 

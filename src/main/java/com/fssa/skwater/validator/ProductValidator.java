@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //Validates the provided Product object for null
-class ProductValidator {
+public class ProductValidator {
 	
 
     /**
