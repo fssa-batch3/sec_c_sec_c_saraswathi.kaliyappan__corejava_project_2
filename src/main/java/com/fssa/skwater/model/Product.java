@@ -10,13 +10,14 @@ import java.time.LocalDate;
 
 
 public class Product {
-	    private int productId;                                //The unique ID of the product
+
+		private int productId;                                //The unique ID of the product
 	    private String productName;                          //The name of the product
 	    private String productDescription;                  //A brief description of the product
 	    private double productPrice;                       //The price of the product
 	    private String productImageURL;                   //The URL of the product imageUrl
-	    private int productCapacity;                     //The capacity of the product
-	    private LocalDate productManufactureDate;       //The manufacture date for product past date
+	    private long productCapacity;                     //The capacity of the product
+	      //The manufacture date for product past date
 	    
 	    public Product() {
 	    	
@@ -42,7 +43,7 @@ public class Product {
 		this.productPrice = productPrice;
 		this.productImageURL = productImageURL;
 		this.productCapacity = productCapacity;
-		this.productManufactureDate = productManufactureDate;
+		
 	}
 	    
 		//Getter and setter methods for the attributes....
@@ -88,24 +89,28 @@ public class Product {
 			this.productImageURL = productImageURL;
 		}
 
-		public int getProductCapacity() {
+		public long getProductCapacity() {
 			return productCapacity;
 		}
 
-		public void setProductCapacity(int productCapacity) {
-			this.productCapacity = productCapacity;
+		public void setProductCapacity(long productCapacity2) {
+			this.productCapacity = productCapacity2;
 		}
 
-		public LocalDate getProductManufactureDate() {
-			return productManufactureDate;
-		}
-
-		public void setProductManufactureDate(LocalDate productManufactureDate) {
-			this.productManufactureDate = productManufactureDate;
-		}
+		
 	
 
-	   
+	    @Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", productDescription="
+				+ productDescription + ", productPrice=" + productPrice + ", productImageURL=" + productImageURL
+				+ ", productCapacity=" + productCapacity + ", productManufactureDate=" + "]";
+	}
+
+		public void setProductCapacity(Long productCapacity1) {
+			// TODO Auto-generated method stub
+			
+		} 
 
 
 }

@@ -1,7 +1,5 @@
 package com.fssa.skwater.validator;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -161,27 +159,5 @@ public class ProductValidator {
 		}
 		return true;
 	}
-	
-	
-	
-	  /**
-     * Validates the product's manufacture date to ensure it's not null and not before the current date.
-     *
-     * @param manufactureDate The product's manufacture date to validate.
-     * @return True if validation passes.
-     * @throws Exception If the manufacture date is null or before the current date.
-     */	
-	public static boolean validateManufactureDate(LocalDate manufactureDate) throws Exception {
-		LocalDate today = LocalDate.now();
-		if (manufactureDate == null) {
-			throw new Exception(productValidatorErrors.INVALID_MANUFACTUREDATE_NULL);
-		} else if (manufactureDate.isBefore(today)) {
-			throw new Exception(productValidatorErrors.INVALID_MANUFACTUREDATE_PATTERN);
-		} else {
-			return true;
-		}
-	}
-
-	    
-	
+		
 }

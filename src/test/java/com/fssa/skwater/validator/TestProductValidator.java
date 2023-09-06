@@ -188,16 +188,6 @@ public class TestProductValidator {
 		}
 	}
 	
-	//Test invalid manufactureDate
-	 @Test
-	    void testInvalidManufactureDate() {
-	        try {
-	        	ProductValidator.validateManufactureDate(null);
-	            Assertions.fail("Expected an exception, but none was thrown.");
-	        } catch (Exception e) {
-            Assertions.assertEquals(productValidatorErrors.INVALID_MANUFACTUREDATE_PATTERN, e.getMessage());
-	        }
-	}
 
 
 }

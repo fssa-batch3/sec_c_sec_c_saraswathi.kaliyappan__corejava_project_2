@@ -2,6 +2,7 @@ package com.fssa.skwater.servicelayer;
 
 import java.net.MalformedURLException;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,12 +21,17 @@ class TestProductService {
 	public static Product validProduct() {
 
 		Product product = new Product();
-		product.setProductName("Nestley");
-		product.setProductImageURL("https://iili.io/HyPiPr7.jpg");
-		product.setProductDescription("This drinking water pump is specially designed for a healthy life.");
+		product.setProductName("Bisleri");
+		product.setProductImageURL("https://iili.io/HytWNz7.jpg");
+		product.setProductDescription(  "25 Litre Bisleri Mineral Water Bottle");
 		product.setProductPrice(40);
 		product.setProductCapacity(25);
 		return product;
+	}
+	
+	public ProductService getProductService() {
+		ProductService productService = new ProductService();
+		return productService;
 	}
 
 	/*
@@ -40,20 +46,13 @@ class TestProductService {
 	}
 
 	/*
-	 * Test method for reading products
-	 */
-	@Test
-	void testReadProduct() throws SQLException, InvalidProductException, DAOException {
-		Assertions.assertTrue(ProductService.readProduct());
-	}
-
-	/*
 	 * Test method for updating a product
 	 */
 	@Test
 	void testUpdateProduct() throws InvalidProductException, DAOException, MalformedURLException {
 
-		Assertions.assertTrue(ProductService.updateProduct(validProduct(), 1));
+		Assertions.assertTrue(ProductService.updateProduct(validProduct(), 9));
+		System.out.println("ProductUpdate Successfully");
 	}
 
 	/*
@@ -61,18 +60,40 @@ class TestProductService {
 	 */
 	@Test
 	void testDeleteProduct() throws DAOException, InvalidProductException {
-		Assertions.assertTrue(ProductService.deleteProduct(3));
+		Assertions.assertTrue(ProductService.deleteProduct(6));
+		System.out.println("Deleted Successfully");
 	}
+	
+	@Test
 
+	void testgetAllProductDetails() throws DAOException, SQLException {
+		ProductService productService = getProductService();
+		List<Product> productList = productService.getAllProductDetails();
+		for (Product e : productList) {
+			System.out.println(e);
+		}
+
+	}
+	
 	/*
 	 * Test method for finding a product by its name
 	 */
 	@Test
 	void testFindProductByName() throws InvalidProductException, DAOException {
 		try {
-			Assertions.assertTrue(ProductService.findProductByName("Nerdlane"));
+			Assertions.assertTrue(ProductService.findProductByName("Bisleri"));
 		} catch (InvalidProductException | SQLException e) {
 			Assertions.fail("Unexpected exception thrown: " + e.getMessage());
 		}
+
+	}
+	
+	/*
+	 * Test method for reading products
+	 */
+	@Test
+	void testReadProduct() throws SQLException, InvalidProductException, DAOException {
+		Assertions.assertTrue(ProductService.readProduct());
 	}
 }
+

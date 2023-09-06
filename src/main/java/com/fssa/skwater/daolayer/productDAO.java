@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.*;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fssa.skwater.exception.DAOException;
 import com.fssa.skwater.exception.InvalidProductException;
@@ -27,7 +29,7 @@ public class ProductDao {
 				preparedStatement.setString(2, product.getProductDescription());
 				preparedStatement.setDouble(3, product.getProductPrice());
 				preparedStatement.setString(4, product.getProductImageURL());
-				preparedStatement.setInt(5, product.getProductCapacity());
+				preparedStatement.setLong(5, product.getProductCapacity());
 
 				int rows = preparedStatement.executeUpdate();
 
@@ -166,7 +168,7 @@ public class ProductDao {
 	            preparedStatement.setString(2, product.getProductDescription());
 	            preparedStatement.setDouble(3, product.getProductPrice());
 	            preparedStatement.setString(4, product.getProductImageURL());
-	            preparedStatement.setInt(5, product.getProductCapacity());
+	            preparedStatement.setLong(5, product.getProductCapacity());
 	            preparedStatement.setInt(6, id);
 
 	            int rows = preparedStatement.executeUpdate();
@@ -180,5 +182,32 @@ public class ProductDao {
 	    }
 	}
 
+	public List<Product> getAllProductDetails() throws SQLException {
+
+		List<Product> productList = new ArrayList<>();
+
+		try (Connection con = ConnectionUtil.getConnection()) {
+			final String query = "SELECT * FROM products";
+			try (Statement st = con.createStatement()) {
+				try (ResultSet rs = st.executeQuery(query)) {
+					while (rs.next()) {
+						Product product = new Product();
+						product.setProductId(rs.getInt("productId"));
+						product.setProductName(rs.getString("productName"));
+						product.setProductImageURL(rs.getString("productImage"));
+						product.setProductPrice(rs.getDouble("productPrice"));
+						product.setProductDescription(rs.getString("productDescription"));
+						product.setProductCapacity(rs.getInt("productCapacity"));
+						productList.add(product);
+					}
+
+				}
+			}
+		} catch (Exception ex) {
+			Logger.info(ex.getMessage());
+			throw new SQLException("Get All Product Details Method Is Failed");
+		}
+		return productList;
+	}
 
 }

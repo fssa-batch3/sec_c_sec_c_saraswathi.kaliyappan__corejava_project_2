@@ -2,6 +2,7 @@ package com.fssa.skwater.servicelayer;
 
 import java.net.MalformedURLException;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.fssa.skwater.daolayer.ProductDao;
 import com.fssa.skwater.exception.DAOException;
@@ -72,6 +73,12 @@ public class ProductService {
 	public Product getProductById(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<Product> getAllProductDetails() throws SQLException {
+		ProductDao productDao = new ProductDao();
+		return productDao.getAllProductDetails();
+
 	}
 
 }
