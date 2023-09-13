@@ -19,7 +19,9 @@ public class Product {
 	    private long productCapacity;                     //The capacity of the product
 	      //The manufacture date for product past date
 	    
-	    public Product() {
+	 
+
+		public Product() {
 	    	
 	    }
 	
@@ -88,16 +90,15 @@ public class Product {
 		public void setProductImageURL(String productImageURL) {
 			this.productImageURL = productImageURL;
 		}
-
-		public long getProductCapacity() {
-			return productCapacity;
+		   public long getProductCapacity() {
+				return productCapacity;
 		}
 
-		public void setProductCapacity(long productCapacity2) {
-			this.productCapacity = productCapacity2;
+		public void setProductCapacity(long productCapacity) {
+				this.productCapacity = productCapacity;
 		}
 
-		
+	
 	
 
 	    @Override
@@ -107,10 +108,6 @@ public class Product {
 				+ ", productCapacity=" + productCapacity + ", productManufactureDate=" + "]";
 	}
 
-		public void setProductCapacity(Long productCapacity1) {
-			// TODO Auto-generated method stub
-			
-		} 
-
+	
 
 }

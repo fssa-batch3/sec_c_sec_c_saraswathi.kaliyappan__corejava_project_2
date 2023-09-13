@@ -21,11 +21,11 @@ class TestProductService {
 	public static Product validProduct() {
 
 		Product product = new Product();
-		product.setProductName("Bisleri");
-		product.setProductImageURL("https://iili.io/HytWNz7.jpg");
-		product.setProductDescription(  "25 Litre Bisleri Mineral Water Bottle");
-		product.setProductPrice(40);
-		product.setProductCapacity(25);
+		product.setProductName("Aquafina");
+		product.setProductImageURL("https://iili.io/HytWEfs.jpg");
+		product.setProductDescription("Carbon Filter: Remove residual chlorine and odours.");
+		product.setProductPrice(50);
+		product.setProductCapacity(20);
 		return product;
 	}
 	
@@ -51,7 +51,7 @@ class TestProductService {
 	@Test
 	void testUpdateProduct() throws InvalidProductException, DAOException, MalformedURLException {
 
-		Assertions.assertTrue(ProductService.updateProduct(validProduct(), 9));
+		Assertions.assertTrue(ProductService.updateProduct(validProduct(),2));
 		System.out.println("ProductUpdate Successfully");
 	}
 

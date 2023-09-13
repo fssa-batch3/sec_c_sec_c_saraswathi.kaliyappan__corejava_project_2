@@ -10,7 +10,7 @@ import com.fssa.skwater.exception.InvalidProductException;
 import com.fssa.skwater.model.Product;
 import com.fssa.skwater.validator.ProductValidator;
 
-public class ProductService {
+ public class ProductService {
 
 	public ProductService() {
 		/*

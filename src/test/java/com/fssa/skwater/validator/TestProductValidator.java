@@ -170,13 +170,7 @@ public class TestProductValidator {
 		}
 	}
 	
-	
-////test for valid product capacity 
-//	@Test
-//	public void testValidProductCapacity() {
-//		Assertions.assertTrue(ProductValidator.productCapacityValidator(50));
-//	}
-	
+
     // Test invalid product capacity
 	@Test
 	public void testProductCapacityValidatorWithInvalidCapacity() {
