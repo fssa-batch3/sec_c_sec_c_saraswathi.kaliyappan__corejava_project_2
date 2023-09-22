@@ -34,6 +34,5 @@ public class ProductValidateConstants {
 	public static final String PRODUCT_PRICE_SYSOUT_MSG = "product_price: ";
 	public static final String PRODUCT_IMAGEURL_SYSOUT_MSG = "product_main_image_url: ";
 	public static final String PRODUCT_CATEGORY_SYSOUT_MSG = "product capacity: ";
-	
 
 }

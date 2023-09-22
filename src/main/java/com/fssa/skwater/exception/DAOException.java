@@ -1,35 +1,19 @@
 package com.fssa.skwater.exception;
 
-public class DAOException extends Exception {
+import java.sql.SQLException;
 
-	private static final long serialVersionUID = 1L;
+public class DaoException extends Exception {
 
-	/**
-	 * Constructs a DAOException with the specified error message.
-	 * 
-	 * @param msg The error message describing the reason for the exception.
-	 */
-	public DAOException(String msg) {
+	public DaoException(String string, SQLException e) {
+		super();
+	}
+
+	public DaoException(String msg) {
 		super(msg);
 	}
 
-	/**
-	 * Constructs a DAOException with the specified cause.
-	 * 
-	 * @param te The underlying cause of the exception.
-	 */
-	public DAOException(Throwable te) {
-		super(te);
-	}
-
-	/**
-	 * Constructs a DAOException with the specified error message and cause.
-	 * 
-	 * @param msg The error message describing the reason for the exception.
-	 * @param te  The underlying cause of the exception.
-	 */
-	public DAOException(String msg, Throwable te) {
-		super(msg, te);
+	public DaoException(SQLException e) {
+		super("A database error occurred: " + e.getMessage(), e);
 	}
 
 }
